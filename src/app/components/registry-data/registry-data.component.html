@@ -36,6 +36,7 @@
                       <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                           <div *ngIf="f.email.errors.required">Es necesario escribir un email</div>
                           <div *ngIf="f.email.errors.email">Debe escribir una dirección de correo válida</div>
+                          <!-- <div *ngIf="username.invalid && username.dirty"> {{email.value}} ya esta registrado</div> -->
                       </div>
                   </div>
                 

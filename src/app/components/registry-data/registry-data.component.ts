@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ConectionDataService } from '../../../services/conection-data.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { map, take, debounceTime } from 'rxjs/operators'
+
 
 
 
@@ -38,6 +41,9 @@ export class RegistryDataComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
+  // get email(){
+  //   return this.registerForm.get('email')
+  // }
 
   addItem(){
     this.submitted = true;
@@ -48,3 +54,19 @@ export class RegistryDataComponent implements OnInit {
   }
 
 }
+
+// export class CustomValidator {
+//   static email(asf:AngularFirestore) {
+//     return (control:AbstractControl) => {
+      
+//       const email = control.value.toLowerCase();
+
+//       return asf.collection('items', ref => ref.where('email', '==', email))
+
+//       .valueChanges().pipe(debounceTime(500),
+//       take(1),
+//       map(array => array.length ? { emailAvailable: false} :null )
+//       )
+//     }
+//   }
+// }

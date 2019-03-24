@@ -26,9 +26,9 @@ export class ConectionDataService {
   constructor(private afs:AngularFirestore) {
     this.itemsCollection = afs.collection<Item>('items');
     this.items = this.itemsCollection.snapshotChanges().pipe(map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Item;
-        const id = a.payload.doc.id;
+      return actions.map(action => {
+        const data = action.payload.doc.data() as Item;
+        const id = action.payload.doc.id;
         return{ id, ...data}
       })
     }))
@@ -41,6 +41,7 @@ export class ConectionDataService {
    addItem(item:Item){
      this.itemsCollection.add(item);
    }
+
 
    deleteItem(item){
      this.itemDoc = this.afs.doc<Item>(`items/${item.id}`);

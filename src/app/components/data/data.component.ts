@@ -23,10 +23,7 @@ export class DataComponent implements OnInit {
   submitted = false;
 
   constructor(private connection: ConectionDataService, private formBuilder: FormBuilder) { 
-    this.connection.listItem().subscribe(item => {
-      this.items = item;
-      console.log(this.items)
-    })
+    
   } 
 
   ngOnInit() {
@@ -39,6 +36,15 @@ export class DataComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
   });
+  this.allData();
+  }
+
+  allData(){
+    this.connection.listItem().subscribe(item => {
+      this.items = item;
+      console.log(this.items)
+    })
+
   }
   get f() { return this.registerForm.controls; }
 

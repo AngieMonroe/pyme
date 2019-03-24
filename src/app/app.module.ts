@@ -5,7 +5,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, AbstractControl } from '@angular/forms';
 
 //servicios
 import { AuthService } from '../services/auth.service';
@@ -36,7 +36,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
     NavbarComponent,
     FooterComponent,
     HeaderComponent,
-    SliderComponent
+    SliderComponent,
   ],
   imports: [
     BrowserModule,
