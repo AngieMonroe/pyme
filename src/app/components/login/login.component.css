@@ -1,0 +1,31 @@
+.container{
+    background-image: url('../../../assets/images/pyme-mujer.jpg');
+    background-size: cover;
+    background-position: 80% 20%;
+    height: 100vh;
+    padding: 0;
+}
+
+::placeholder { font-size: .7em }
+
+.btn-google{
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.btn-google i{
+    color: #fff;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+}

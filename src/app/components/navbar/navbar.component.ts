@@ -4,11 +4,12 @@ import { AuthService } from '../../../services/auth.service';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class HomeComponent implements OnInit {
+export class NavbarComponent implements OnInit {
+
   public isLogin: boolean;
   public nameUser: string;
   public userEmail: string;
@@ -24,5 +25,4 @@ export class HomeComponent implements OnInit {
     })
     .catch(err=> console.log('error', err.message))
   }
-
 }

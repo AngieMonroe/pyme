@@ -1,5 +1,6 @@
-<table class="table">
-    <thead>
+<div class="table-responsive-sm pt-5 pl-3">
+<table class="table table-hover">
+    <thead >
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
@@ -21,7 +22,83 @@
         <td>{{item.phone}}</td>
         <td>{{item.email}}</td>
         <td>{{item.password}}</td>
-        <td><a (click)="delete(item)">Eliminar</a> <a (click)="edit(item)">Editar</a></td>
+        <td><a (click)="delete(item)"><i class="fas fa-trash text-danger mb-3"></i></a> 
+          <a data-toggle="modal" data-target="#exampleModal" (click)="edit(item)"><i class="fas fa-pen text-success"></i></a></td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar registro</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- form -->
+          <div class="container p-4">
+              <div class="row">
+                  <div class="col-md-6 offset-md-3">
+                      <form [formGroup]="registerForm" (ngSubmit)="saveEdit()">
+                          <div class="form-group">
+                              <input [(ngModel)]="editItem.name" name="name" placeholder="Nombre" type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                              <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                  <div *ngIf="f.name.errors.required">Es necesario escribir un nombre</div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input [(ngModel)]="editItem.firstName" name="firstName" placeholder="Primer apellido" type="text" formControlName="firstName" class="form-control" />
+                          </div>
+                          <div class="form-group">
+                              <input [(ngModel)]="editItem.rfc" name="rfc"  placeholder="RFC" type="text" formControlName="rfc" class="form-control" />
+                              <div *ngIf="submitted && f.rfc.errors" class="invalid-feedback">
+                                  <div *ngIf="f.rfc.errors">Mínimo 10 caracteres</div>
+                              </div>
+                    
+                          </div>
+                          <div class="form-group">
+                              <input [(ngModel)]="editItem.age" name="age" placeholder="Edad" type="text" formControlName="age" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.age.errors }" />
+                              <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+                                  <div *ngIf="f.age.errors">Sólo se pueden escribir dos digitos númericos</div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input [(ngModel)]="editItem.phone" name="phone" placeholder="Telefono" type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                              <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                  <div *ngIf="f.phone.errors">Número telefónico de 10 dígitos</div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input [(ngModel)]="editItem.email" name="email" placeholder="Email" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                  <div *ngIf="f.email.errors.required">Es necesario escribir un email</div>
+                                  <div *ngIf="f.email.errors.email">Debe escribir una dirección de correo válida</div>
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input [(ngModel)]="editItem.password" name="password" placeholder="Password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                  <div *ngIf="f.password.errors.required">Es necesario escribir un password</div>
+                                  <div *ngIf="f.password.errors.minlength">El Password debe tener mínimo 6 caracteres</div>
+                              </div>
+                          </div>
+                          <div class="form-group text-center">
+                              <button [disabled]="loading" class="btn btn-danger" data-dismiss="modal">Editar</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+<!-- fin form         -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -30,7 +30,7 @@ export class RegistryDataComponent implements OnInit {
       firstName: ['', [Validators, Validators]],
       rfc: ['', [Validators, Validators.minLength(10)]],
       age: ['', [Validators, Validators.maxLength(2)]],
-      phone: ['', [Validators, Validators.maxLength(10)]],
+      phone: ['', [Validators, Validators.minLength(10)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
   });
