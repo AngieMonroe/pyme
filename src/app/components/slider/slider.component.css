@@ -1,0 +1,11 @@
+section {
+background-image: url('../../../assets/images/fondo-red.jpg');
+background-size: cover;
+width: 100vw;
+height: 40vh;
+}
+
+.carousel{
+    width: 50vw;
+}
+

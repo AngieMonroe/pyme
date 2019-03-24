@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConectionDataService } from '../../../services/conection-data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EDEADLK } from 'constants';
 
 
 @Component({

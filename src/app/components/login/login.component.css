@@ -1,12 +1,13 @@
-.container{
+section{
     background-image: url('../../../assets/images/pyme-mujer.jpg');
     background-size: cover;
     background-position: 80% 20%;
     height: 100vh;
-    padding: 0;
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
 
-::placeholder { font-size: .7em }
 
 .btn-google{
     border-radius: 50%;
@@ -29,3 +30,19 @@
     padding: 20px;
     border-radius: 20px;
 }
+
+@media (min-width: 768px) and (max-width: 991px) { 
+    section{
+        background-position: 20%;
+    }
+ }
+
+ @media (min-width: 992px) {
+    section{
+        background-position: 40%;
+    }
+    .row {
+        justify-content: flex-end;
+    }
+  }
+

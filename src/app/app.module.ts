@@ -18,6 +18,12 @@ import { HomeComponent } from './components/home/home.component';
 import { RegistryUserComponent } from './components/registry-user/registry-user.component';
 import { RegistryDataComponent } from './components/registry-data/registry-data.component';
 import { DataComponent } from './components/data/data.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { NgImageSliderModule } from 'ng-image-slider';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +32,11 @@ import { DataComponent } from './components/data/data.component';
     HomeComponent,
     RegistryUserComponent,
     RegistryDataComponent,
-    DataComponent
+    DataComponent,
+    NavbarComponent,
+    FooterComponent,
+    HeaderComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +44,8 @@ import { DataComponent } from './components/data/data.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgImageSliderModule
   ],
   providers: [ AuthService, ConectionDataService, AngularFirestore ],
   bootstrap: [AppComponent]

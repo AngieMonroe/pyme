@@ -6,9 +6,9 @@ import { RegistryUserComponent } from './components/registry-user/registry-user.
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { 
-    path: '', 
-    component: LoginComponent, 
+  {
+    path: '',
+    component: LoginComponent
   },
   { 
     path: 'home',

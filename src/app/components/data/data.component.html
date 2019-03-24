@@ -1,6 +1,7 @@
+<section class="p-md-4">
 <div class="table-responsive-sm pt-5 pl-3">
-<table class="table table-hover">
-    <thead >
+<table class="table table-hover ">
+    <thead class="bg-danger text-white text-center">
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
@@ -22,7 +23,7 @@
         <td>{{item.phone}}</td>
         <td>{{item.email}}</td>
         <td>{{item.password}}</td>
-        <td><a (click)="delete(item)"><i class="fas fa-trash text-danger mb-3"></i></a> 
+        <td><a (click)="delete(item)"><i class="fas fa-trash text-danger mb-3 pr-3"></i></a> 
           <a data-toggle="modal" data-target="#exampleModal" (click)="edit(item)"><i class="fas fa-pen text-success"></i></a></td>
       </tr>
     </tbody>
@@ -102,3 +103,4 @@
       </div>
     </div>
   </div>
+</section>
