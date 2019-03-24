@@ -1,0 +1,27 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">RFC</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Password</th>
+        <th scope="col"></th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.name}}</td>
+        <td>{{item.firstName}}</td>
+        <td>{{item.rfc}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.password}}</td>
+        <td><a (click)="delete(item)">Eliminar</a> <a (click)="edit(item)">Editar</a></td>
+      </tr>
+    </tbody>
+  </table>
