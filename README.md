@@ -2,7 +2,7 @@
 
 Para la elaboración de este proyecto se utilizo la versión de angular cli 7, Bootstrap 4.2 y Firebase.
 
-##Software requerido
+## Software requerido
 
 Verifica que tengas lo siguiente:
 
