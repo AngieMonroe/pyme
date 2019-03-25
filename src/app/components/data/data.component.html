@@ -1,5 +1,24 @@
 <section class="p-md-4">
-<div class="table-responsive-sm pt-5 pl-3">
+  <div class="d-flex d-md-none container col-10 " >
+    <div class="card bg-light mb-3 inline-block" *ngFor="let item of items; index as i" style="max-width: 18rem;">
+        <div class="card-header">Registro No. {{i + 1}}</div>
+        <div class="card-body">
+          <ul>
+              <li class="card-text">Nombre: <span class="text-secondary">{{item.name}} </span></li>
+              <li class="card-text">Apellido: <span class="text-secondary">{{item.firstName}}</span></li>
+              <li class="card-text">RFC: <span class="text-secondary">{{item.rfc}}</span></li>
+              <li class="card-text">Edad: <span class="text-secondary">{{item.age}}</span></li>
+              <li class="card-text">Teléfono: <span class="text-secondary">{{item.phone}}</span></li>
+              <li class="card-text">Email: <span class="text-secondary">{{item.email}}</span></li>
+              <li class="card-text">Password: <span class="text-secondary">{{item.password}}</span></li>
+          </ul>
+          <button class="btn btn-danger mr-5" (click)="delete(item)">Borrar</button>
+          <button class="btn btn-info" data-toggle="modal" data-target="#exampleModal" (click)="edit(item)">Editar</button>
+
+        </div>
+    </div>
+  </div>
+<div class="table-responsive-sm pt-5 pl-3 d-none d-md-block">
 <table class="table table-hover ">
     <thead class="bg-danger text-white text-center">
       <tr>
@@ -24,7 +43,7 @@
         <td>{{item.email}}</td>
         <td>{{item.password}}</td>
         <td><a (click)="delete(item)"><i class="fas fa-trash text-danger mb-3 pr-3"></i></a> 
-          <a data-toggle="modal" data-target="#exampleModal" (click)="edit(item)"><i class="fas fa-pen text-success"></i></a></td>
+          <a data-toggle="modal" data-target="#exampleModal" (click)="edit(item)"><i class="fas fa-pen text-info"></i></a></td>
       </tr>
     </tbody>
   </table>

@@ -1,0 +1,14 @@
+
+.container{
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+li{
+    list-style: none;
+}
+
+.card{
+    width: 100%;
+}

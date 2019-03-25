@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConectionDataService } from '../../../services/conection-data.service';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map, take, debounceTime } from 'rxjs/operators'
 
 
 
@@ -24,8 +23,9 @@ export class RegistryDataComponent implements OnInit {
   }
   registerForm: FormGroup;
   submitted = false;
+  status = '';
 
-  constructor(private connection:ConectionDataService, private formBuilder: FormBuilder) { }
+  constructor(private connection:ConectionDataService, private formBuilder: FormBuilder, private afs:AngularFirestore) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -41,9 +41,6 @@ export class RegistryDataComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
-  // get email(){
-  //   return this.registerForm.get('email')
-  // }
 
   addItem(){
     this.submitted = true;
@@ -51,22 +48,22 @@ export class RegistryDataComponent implements OnInit {
       return;
     }
     this.connection.addItem(this.item)
+
+    this.registerForm.reset();
+  }
+  
+  emailcheck($event) {
+    let q = $event.target.value;
+      let collref = this.afs.collection('items').ref;
+      let queryref = collref.where('email', '==', q);
+      queryref.get().then((snapShot) => {
+        if (snapShot.empty) {
+          this.status = '';
+        }
+        else {
+          this.status = 'El email ya existe en el sistema';
+        }
+      })
+    }
   }
 
-}
-
-// export class CustomValidator {
-//   static email(asf:AngularFirestore) {
-//     return (control:AbstractControl) => {
-      
-//       const email = control.value.toLowerCase();
-
-//       return asf.collection('items', ref => ref.where('email', '==', email))
-
-//       .valueChanges().pipe(debounceTime(500),
-//       take(1),
-//       map(array => array.length ? { emailAvailable: false} :null )
-//       )
-//     }
-//   }
-// }

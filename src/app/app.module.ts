@@ -5,7 +5,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
-import { FormsModule, ReactiveFormsModule, AbstractControl } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //servicios
 import { AuthService } from '../services/auth.service';
